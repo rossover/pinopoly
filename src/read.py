@@ -15,8 +15,8 @@ def format_uid(uid):
 
 RFID = MFRC522.MFRC522()
 
-print "# RFID Reader\n"
-print "Info: Leave the sector field empty to exit.\n"
+print("# RFID Reader\n")
+print("Info: Leave the sector field empty to exit.\n")
 
 # Get tag size if available
 (Status, TagSize) = RFID.Request(RFID.PICC_REQIDL)
@@ -31,10 +31,10 @@ while True:
     try:
         Sector = input(message)
     except:
-        print ""
+        print("")
         break
     else:
-        print "Waiting for Tag...\n"
+        print("Waiting for Tag...\n")
 
     while True:
 
@@ -48,7 +48,7 @@ while True:
             break
 
         if Sector < 1 or Sector > (TagSize - 1):
-            print "Sector out of range (1 - %s)\n" % (TagSize - 1)
+            print("Sector out of range (1 - %s)\n" % (TagSize - 1))
             break
 
         # Selecting blocks
@@ -83,10 +83,10 @@ while True:
                     data += block
             if data:
                 text_read = "".join(chr(i) for i in data)
-            print "UID:  ", format_uid(UID)
-            print "Data: ", text_read,"\n"
+            print("UID:  ", format_uid(UID))
+            print("Data: ", text_read,"\n")
         else:
-            print "Can't access sector", Sector, "!\n"
+            print("Can't access sector", Sector, "!\n")
         RFID.StopCrypto1()
         break
 
