@@ -31,7 +31,7 @@ while continue_reading:
     # If status is alright, continue to the next stage
     if status == rfid_device.MI_OK:
         # Print UID
-        print("Card read UID: %s,%s,%s,%s" % (hex(uid[0]), hex(uid[1]), hex(uid[2]), hex(uid[3])))
+        print("Card read UID: %s%s%s%s" % (hex(uid[0]).split('x')[-1], hex(uid[1]).split('x')[-1], hex(uid[2]).split('x')[-1], hex(uid[3]).split('x')[-1]))
 
         # default key of FF FF FF FF FF FF
         key = [0xFF,0xFF,0xFF,0xFF,0xFF,0xFF]
