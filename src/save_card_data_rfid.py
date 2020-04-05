@@ -1,14 +1,5 @@
 #!/usr/bin/env python
 
-import warnings
-#warnings.filterwarnings('always')
-warnings.filterwarnings('ignore', 
-                        '.*', 
-                        UserWarning
-                        )
-
-#import warnings_filtering
-
 import binascii
 import json
 import numbers
